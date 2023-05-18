@@ -94,6 +94,7 @@ $(document).ready(function(){
         $msgBox = '<div class="d-flex flex-row justify-content-end"><div><p class="small p-2 ms-3 mb-4 rounded-3 bg-light text-black" > '+text+' </p></div></div>';
         $('.modal-body').append($msgBox);
         let msg1 = { name: "User", message: text }
+        console.log($SCRIPT_ROOT);
         fetch($SCRIPT_ROOT + '/predict', {
             method: 'POST',
             body: JSON.stringify({ message: text }),
