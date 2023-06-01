@@ -1,18 +1,18 @@
-
-from flask import Flask, render_template, request, jsonify
+from flask import Flask, request, jsonify
+from flask_cors import CORS
 from chat import get_response
 
+app = Flask(__name__)
+CORS(app)
 
-
-app = Flask(__name__,template_folder='template')
-@app.get("/")
-
+@app.route("/")
 def index_get():
-    return render_template("base.html")
+    return "Hello, Flask app is running!"
 
-@app.post("/predict")
+@app.route("/predict", methods=["POST"])
 def predict():
-    text = request.get_json().get("message")
+    data = request.get_json()
+    text = data.get("message")
     if len(text) > 100:
         message = {"answer": "I'm sorry, your query has too many characters for me to process. If you would like to speak to a live agent, say 'I would like to speak to a live agent'"}
         return jsonify(message)
@@ -20,8 +20,5 @@ def predict():
     message = {"answer": response}
     return jsonify(message)
 
-
 if __name__ == "__main__":
-    app.run(debug = True)
-    
-
+    app.run(host='0.0.0.0', port=5000)
