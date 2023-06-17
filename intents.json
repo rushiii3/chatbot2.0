@@ -92,7 +92,21 @@
     },
     {"tag":"principal_of_college",
         "patterns" : ["Who is the principal of college?","current principal","Who is the principal of the vaze","Who is the principal of the V.G. Vaze College of Arts, Science and Commerce (Autonomous)"],
-        "responses" : ["The principal of the V.G. Vaze College of Arts, Science and Commerce (Autonomous) is <b>Prof. (Dr.) Preeta Nilesh</b>."]
+        "responses" : ["The principal of the V.G. Vaze College of Arts, Science and Commerce (Autonomous) is <b>Prof. (Dr.) Preeta Nilesh</b>."],
+        "context_set": "principal"
+    },
+    {"tag": "Preeta Nilesh",
+     "patterns": [ "Preeta Nilesh", "Who is Preeta Nilesh", "Prof. (Dr.) Preeta Nilesh", "Who is Prof. (Dr.) Preeta Nilesh?", "Tell me more about principal","Tell me more about Prof. (Dr.) Preeta Nilesh","Tell me more about Preeta Nilesh" ],
+     "responses": ["Professor (Dr.) Preeta Nilesh is a highly accomplished individual who serves as a college Principal, Head of the History Department, and Dean of Humanities and Social Sciences. With exceptional leadership skills, they effectively manage college administration, shape the curriculum of the history department, and coordinate various departments within the division. Their unwavering commitment to academic excellence and student success shines through their diverse range of responsibilities."],
+     "context_filter": "principal"
+    },
+    {"tag":"founder",
+        "patterns" : ["Who is the founder of the college?","Who is the founder of the vaze?","Who is the founder of the V.G. Vaze College of Arts, Science and Commerce (Autonomous)"],
+        "responses" : ["The esteemed founder of V.G. Vaze College of Arts, Science and Commerce (Autonomous) is Mr. Ramesh Vaze.","Mr. Ramesh Vaze is credited as the individual who established V.G. Vaze College of Arts, Science and Commerce (Autonomous)."]
+    },
+    {"tag":"streams_in_junior_college",
+        "patterns" : ["streams in junior college","What are the streams in junior college?","Could you please list the different academic disciplines or streams available in junior college?","What are the areas of study offered in junior college?","Can you provide information about the various streams of study in junior college?","Can you share the available streams of study that students can pursue during their junior college education?","Could you provide an overview of the streams or academic tracks that students can opt for in junior college?"],
+        "responses" : ["<ol class='list list-group-numbered'><p>The Streams offered in Junior college ar:</p><li class='list-group-item'>Arts</li><li class='list-group-item'>Commerce</li><li class='list-group-item'>Science</li><li class='list-group-item'>Common</li></ol>"]
     }
 
 ]
