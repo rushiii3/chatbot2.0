@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,53 +9,17 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.0/jquery.min.js" integrity="sha512-3gJwYpMe3QewGELv8k/BX9vcqhryRdzRMxVfq6ngyWXwo03GFEzjsUm8Q7RZcHPHksttq7/GFoxjCVUjkjvPdw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <title>ChatBot</title>
     <style>
-      @media (min-width: 1400px) { 
-        .modal-dialog{
-            position: fixed;
-            right: 0;
-            top: 20%;
-            width: 40%;
-            height: 35rem;
-            margin-right: 1rem;
-        }
-      }
-        @media (min-width: 576px) { 
-          .modal-dialog{
-            position: fixed;
-            right: 0;
-            top: 20%;
-            width: 70%;
-            height: 35rem;
-            margin-right: 1rem;
-        }
-         }
-         .modal-body{
-  position: relative;
-         }
-    </style>
-
-<head>
-    <meta charset="UTF-8">
-    <title>Chatbot</title>
+#data:focus {
+    outline: none;
+}
+      </style>
 </head>
 <body>
-    <div style="height: 100vh;background-color: aqua;"></div>
-    <div style="height: 100vh;background-color:antiquewhite;"></div>
-
-    <div>
-        <div style="position: fixed; bottom: 5px; right: 5px; margin: 0px; z-index: 1;">
-          <button type="button" class="btn btn-outline-primary btn-lg" data-bs-toggle="modal" data-bs-target="#NewsModal" style="border-radius: 50%;">
-            <img src="https://www.insegment.com/blog/wp-content/uploads/2020/11/chatbot-marketing.gif" alt="ChatBoticon" style="height: 7rem;width: 6rem;">
-          </button>
-        </div>
-        <div class="modal fade" id="NewsModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="NewsModalLabel" aria-hidden="true">
-          <div class="modal-dialog modal-dialog-scrollable">
-            <div class="modal-content">
+            <div class="modal-content" style="height: 100vh;">
               <div class="modal-header">
                 <h5 class="modal-title" id="NewsModalLabel">ChatBot</h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
               </div>
-              <div class="modal-body overflow-auto " style="height: 22rem;" >
+              <div class="modal-body overflow-auto " >
                 
               </div>
               <div class="modal-footer">
@@ -69,51 +34,41 @@
               </div>
             </div>
           </div>
-        </div>
-      </div>
-
-
-
-    
-
-
-$(document).ready(function(){
-    $('#submit').on('click',function(){
-      var text= $('#data').val();
-      const $container = $('.modal-body');
-      $container.animate({scrollTop: $container.prop('scrollHeight')}, 1000);
-        console.log(text);
-        if (text === "") {
-            return;
-        }
-        $msgBox = '<div class="d-flex flex-row justify-content-end"><div><p class="small p-2 ms-3 mb-4 rounded-3 bg-light text-black" > '+text+' </p></div></div>';
-        $('.modal-body').append($msgBox);
-        let msg1 = { name: "User", message: text }
-        console.log($SCRIPT_ROOT);
-        fetch($SCRIPT_ROOT + '/predict', {
-            method: 'POST',
-            body: JSON.stringify({ message: text }),
-            mode: 'cors',
-            headers: {
-              'Content-Type': 'application/json'
-            },
-          })
-          .then(r => r.json())
-          .then(r => {
-            $chatMsgBox = '<div class="d-flex flex-row justify-content-start"><img src="https://github.com/rushiii3/chatbot/blob/main/s.png?raw=true" alt="avatar 1" style="width: 40px; height: 100%;border-radius:50%;"><div><p class="small p-2 ms-3 mb-4 rounded-3 bg-primary" style="color: white;" >'+r["answer"]+'</p></div></div>';
-            $container.animate({scrollTop: $container.prop('scrollHeight')}, 1000);
-            $('.modal-body').append($chatMsgBox);
-
-        }).catch((error) => {
-            console.error('Error:', error);
-            // this.updateChatText(chatbox)
-            // textField.value = ''
-          });
-        $('#data').val("")
-    })
-})
-
-
-    </script>
+          <script>
+            $(document).ready(function(){
+                $('#submit').on('click',function(){
+                  var text= $('#data').val();
+                  const $container = $('.modal-body');
+                  $container.animate({scrollTop: $container.prop('scrollHeight')}, 1000);
+                    console.log(text);
+                    if (text === "") {
+                        return;
+                    }
+                    $msgBox = '<div class="d-flex flex-row justify-content-end"><div><p class="small p-2 ms-3 mb-4 rounded-3 bg-light text-black" > '+text+' </p></div></div>';
+                    $('.modal-body').append($msgBox);
+                    let msg1 = { name: "User", message: text }
+                    fetch('https://chatbot-p7kt.onrender.com/predict', {
+                        method: 'POST',
+                        body: JSON.stringify({ message: text }),
+                        mode: 'cors',
+                        headers: {
+                          'Content-Type': 'application/json'
+                        },
+                      })
+                      .then(r => r.json())
+                      .then(r => {
+                        $chatMsgBox = '<div class="d-flex flex-row justify-content-start"><img src="https://github.com/rushiii3/chatbot/blob/main/s.png?raw=true" alt="avatar 1" style="width: 40px; height: 100%;border-radius:50%;"><div><p class="small p-2 ms-3 mb-4 rounded-3 bg-primary" style="color: white;" >'+r["answer"]+'</p></div></div>';
+                        $container.animate({scrollTop: $container.prop('scrollHeight')}, 1000);
+                        $('.modal-body').append($chatMsgBox);
+            
+                    }).catch((error) => {
+                        console.error('Error:', error);
+                      });
+                    $('#data').val("")
+                })
+            })
+            
+            
+                </script>
 </body>
 </html>

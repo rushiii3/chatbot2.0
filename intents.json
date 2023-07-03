@@ -105,7 +105,11 @@
     },
     {"tag":"streams_in_junior_college",
         "patterns" : ["streams in junior college","What are the streams in junior college?","Could you please list the different academic disciplines or streams available in junior college?","What are the areas of study offered in junior college?","Can you provide information about the various streams of study in junior college?","Can you share the available streams of study that students can pursue during their junior college education?","Could you provide an overview of the streams or academic tracks that students can opt for in junior college?"],
-        "responses" : ["The Streams offered in Junior college are:<ol class='list list-group-numbered'><li class='list-group-item'>Arts</li><li class='list-group-item'>Commerce</li><li class='list-group-item'>Science</li><li class='list-group-item'>Common</li></ol>"]
+        "responses" : ["The Streams offered in Junior college are:<br>1. Arts <br>2. Commerce <br>3. Science<br>4. Common<br>"]
+    },
+    {"tag":"courses_in_junior_college_in_arts",
+        "patterns":["courses in junior college in arts","What are the courses in arts in junior college?","Can you provide a list of the academic courses offered in the junior arts stream?","Can you provide information about the course offerings within the arts stream for students at the junior college level?","What are the subject in junior college arts?"]
+
     }
 
 ]
