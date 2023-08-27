@@ -108,7 +108,8 @@
         "responses" : ["The Streams offered in Junior college are:<br>1. Arts <br>2. Commerce <br>3. Science<br>4. Common<br>"]
     },
     {"tag":"courses_in_junior_college_in_arts",
-        "patterns":["courses in junior college in arts","What are the courses in arts in junior college?","Can you provide a list of the academic courses offered in the junior arts stream?","Can you provide information about the course offerings within the arts stream for students at the junior college level?","What are the subject in junior college arts?"]
+        "patterns":["courses in junior college in arts","What are the courses in arts in junior college?","Can you provide a list of the academic courses offered in the junior arts stream?","Can you provide information about the course offerings within the arts stream for students at the junior college level?","What are the subject in junior college arts?"],
+        "responses":[]
 
     }
 
